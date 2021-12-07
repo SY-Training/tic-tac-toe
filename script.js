@@ -16,6 +16,7 @@ function createBoard() {
 
         for (let j = 0; j < board[i].length; j++){
             let btn = document.createElement("button");
+            btn.id = `${i}${j}`;
             let b = document.createTextNode(board[i][j]);
             btn.appendChild(b);
             row.appendChild(btn);
@@ -40,7 +41,10 @@ function addListeners() {
     }
 }
 
-function play(){
-    console.log("HIIIII");
+function play(e){
+    console.log(e.currentTarget.id);
+    let btn = document.getElementById(e.currentTarget.id)
+    btn.textContent = "x";
+    
 }
 
