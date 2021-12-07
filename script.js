@@ -11,16 +11,13 @@ function createBoard() {
 
         let row = document.createElement("div");
 
-        
-        board.forEach(el => {
-        
-        let btn = document.createElement("button");
-        let b = document.createTextNode(el[x]);
-        btn.appendChild(b);
-        row.appendChild(btn);
-            
-        })
-        
+        for (let j = 0; j < board[i].length; j++){
+            let btn = document.createElement("button");
+            let b = document.createTextNode(board[i][j]);
+            btn.appendChild(b);
+            row.appendChild(btn);
+        }
+
         divBoard.appendChild(row);
     }
 }
