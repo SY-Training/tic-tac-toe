@@ -4,6 +4,9 @@ let board = [
     ["7", "8", "9"],
 ];
 
+
+
+
 function createBoard() {
     const divBoard = document.querySelector(".board");
 
@@ -23,3 +26,21 @@ function createBoard() {
 }
 
 createBoard();
+
+addListeners();
+
+
+
+function addListeners() {
+    const butts = document.querySelectorAll('button');
+    let len = butts.length;
+
+    for (let i = 0; i < len; i++) {
+        butts[i].addEventListener('click', play);       
+    }
+}
+
+function play(){
+    console.log("HIIIII");
+}
+
