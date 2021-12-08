@@ -4,10 +4,10 @@ let board = [
     ["7", "8", "9"],
 ];
 
+let playerOneTurn = false;
 
 
-
-function createBoard() {
+(function createBoard() {
     const divBoard = document.querySelector(".board");
 
     for (let i = 0; i < board.length; i++){
@@ -24,27 +24,51 @@ function createBoard() {
 
         divBoard.appendChild(row);
     }
-}
+})();
 
-createBoard();
-
-addListeners();
-
-
-
-function addListeners() {
+(function addListeners() {
     const butts = document.querySelectorAll('button');
     let len = butts.length;
 
     for (let i = 0; i < len; i++) {
         butts[i].addEventListener('click', play);       
     }
-}
+})();
 
 function play(e){
     console.log(e.currentTarget.id);
     let btn = document.getElementById(e.currentTarget.id)
-    btn.textContent = "x";
+    let ifPlayed = btn.textContent
+    let str = e.currentTarget.id.split("")
+    if (ifPlayed != "X" && ifPlayed != "O"){
+    
+        if (playerOneTurn === true){
+            btn.textContent = "X";
+            playerOneTurn = false;
+            board[str[0]][str[1]] = "X";
+        }   
+
+        else {
+            btn.textContent = "O"; 
+            playerOneTurn = true;
+            board[str[0]][str[1]] = "O";
+        }
+    }
+
+    else{
+        console.log("turn already used");
+    }
+
+}
+
+
+function CheckWinner() {
+    let P1 = "X";
+    let P2 = "O";
+
     
 }
 
+const Player = (name) => {
+    
+}
